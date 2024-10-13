@@ -1,0 +1,6 @@
+# So, you're trying to solve CuPh3@D YT channel by going to the CuPh3@D ARG website's robots.txt, good thinking
+
+User-agent: *
+Disallow: /test.html
+Disallow: /c0mp@ss.html
+Disallow: /radiosignals.mp4
