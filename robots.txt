@@ -4,3 +4,4 @@ User-agent: *
 Disallow: /test.html
 Disallow: /c0mp@ss.html
 Disallow: /me$$@ge.wav
+Disallow: /me$$@ge-transcript.html
