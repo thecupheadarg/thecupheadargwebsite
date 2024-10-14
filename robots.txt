@@ -3,4 +3,4 @@
 User-agent: *
 Disallow: /test.html
 Disallow: /c0mp@ss.html
-Disallow: /me$$ag3.wav
+Disallow: /me$$@ge.wav
