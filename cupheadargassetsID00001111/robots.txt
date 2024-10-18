@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /cupheadargassetsID00001111/
+Disallow: /thecupheadargwebsite/
+Disallow: /cupheadargassetsID00001111/CuPh3@D.png
