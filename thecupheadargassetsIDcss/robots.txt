@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /thecupheadargwebsite.css
+Disallow: /thecupheadargassetsIDcss/thecupheadargwebsite.css
