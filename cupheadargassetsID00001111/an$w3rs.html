@@ -5,14 +5,13 @@
 <meta name="description" content="CuPh3@D YT ARG website">
 <script>
 (function() {
-    const correctPasswordHash = "cab7bc19cede24df08eed18677bf6bf01fe0e7db32236e2da2b4a4385b498cfd";
+    const correctPasswordHash = "cab7bc19cede24df08eed18677bf6bf01fe0e7db32236e2da2b4a4385b498cfd"; 
     const promptMessage = "Enter the password to access this page:";
     const incorrectPasswordMessage = "Incorrect password. Please try again.";
     const blockedMessage = "This action is blocked."; 
 
     if (sessionStorage.getItem('isLoggedIn') === 'true') {
-        document.querySelector(".content").style.display = "block"; 
-        return;
+        return; // If already logged in, don't show content again
     }
 
     async function hashPassword(password) {
