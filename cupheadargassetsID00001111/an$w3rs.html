@@ -58,17 +58,18 @@
     function detectViewSource() {
         if (window.location.href.startsWith("view-source:")) {
             alert("Nope, you're in view-source mode!");
+            window.location.href = "https://your-redirect-url.com"; // Replace with your redirect URL
         }
     }
 
-    window.addEventListener('beforeunload', function(event) {
-        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && event.key === 'u') {
             event.preventDefault();
-            event.returnValue = ''; 
+            alert("Redirecting because you tried to view source.");
+            window.location.href = "https://your-redirect-url.com"; // Replace with your redirect URL
         }
     });
 
-    document.addEventListener('keydown', blockDevToolsShortcuts);
     document.addEventListener('contextmenu', blockRightClick);
     setInterval(detectViewSource, 1000);
 
