@@ -17,23 +17,71 @@ body {
 
 
     <script>
-        // Password protection
-        const correctPassword = "q@$@q"; 
-        
-       
-        function promptPassword() {
-            const password = prompt("Enter the password to access this page:");
+// Obfuscated Password Protection Code with SHA-256 Hash, Blocked Inspect Shortcuts, and Persistent Login, so don't bother trying to bruteforce.
 
-            if (password === correctPassword) {
+(function() {
+    const _0x1234 = "Enter the password to access this page:"; 
+    const _0x5678 = "Incorrect password. Please try again."; 
+    const _0x9abc = "This action is blocked."; 
+
+    
+    const _0xdef0 = "d8ee8ee25492965b2eae46a3aaf869438a08a62761b1f263cf3b662d23c5a0d0";
+
+    
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        document.querySelector(".content").style.display = "block";
+        return; 
+    }
+
+    async function _0x1111(_0x2222) {
+        const _0x3333 = new TextEncoder(); 
+        const _0x4444 = await crypto.subtle.digest("SHA-256", _0x3333.encode(_0x2222)); 
+        return _0x4444; 
+    }
+
+    async function _0x5555() {
+        while (true) { 
+            const _0x7777 = prompt(_0x1234); 
+            const _0x8888 = await _0x1111(_0x7777);
+            
+            
+            const _0x9999 = Array.from(new Uint8Array(_0x8888))
+                .map(b => b.toString(16).padStart(2, "0"))
+                .join("");
+
+            
+            if (_0x9999 === _0xdef0) {
+               
+                localStorage.setItem('isLoggedIn', 'true');
                 document.querySelector(".content").style.display = "block"; 
+                return; 
             } else {
-                alert("Incorrect password. Please try again.");
-                promptPassword(); 
+                alert(_0x5678); 
             }
         }
+    }
+
+  
+    function _0x6666(event) {
+        const _0x7777 = event || window.event;
+        const _0x8888 = _0x7777.keyCode || _0x7777.which;
 
         
-        promptPassword();
+        if (_0x8888 === 123 || 
+            (_0x7777.ctrlKey && _0x7777.shiftKey && _0x8888 === 73) || 
+            (_0x7777.ctrlKey && _0x8888 === 85)) { 
+            _0x7777.preventDefault();
+            _0x7777.stopPropagation();
+            alert(_0x9abc); 
+        }
+    }
+
+   
+    document.addEventListener('keydown', _0x6666);
+
+    _0x5555(); 
+})();
+
     </script>
 </body>
 </html>
