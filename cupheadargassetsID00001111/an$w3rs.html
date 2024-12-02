@@ -3,33 +3,117 @@
 <head>
 <title>...an$w3rs... | CuPh3@D</title>
 <meta name="description" content="CuPh3@D YT ARG website">
-<style>
-body {
-            background-color: black;
-        }
-</style>
-</head>
-<body>
-<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">y0u w@nt an$w3r$ d0nt y0u...</p>
-<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">it'S $impl3...</p>
-<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">0nly th3 tru3 inv3st1gat0r$ c@n get @nsw3rS</p>
-<a href="https://www.youtube.com/watch?v=GV4edqjFFng">...</a>
+<!--
 
 
-    <script>
-// Password Protection Code, Blocked Inspect Shortcuts, and Persistent Login, so don't bother trying to bruteforce.
 
+
+nope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nope
+
+
+
+
+
+
+
+
+
+
+
+nope
+
+
+
+-->
+<script>
 (function() {
     const _0x1234 = "Enter the password to access this page:"; 
     const _0x5678 = "Incorrect password. Please try again."; 
     const _0x9abc = "This action is blocked."; 
 
     
-    const _0xdef0 = "d8ee8ee25492965b2eae46a3aaf869438a08a62761b1f263cf3b662d23c5a0d0";
+    const _0xdef0 = "d8ee8ee25492965b2eae46a3aaf869438a08a62761b1f263cf3b662d23c5a0d0"; 
 
     
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        document.querySelector(".content").style.display = "block";
+    if (sessionStorage.getItem('isLoggedIn') === 'true') {
+        document.querySelector(".content").style.display = "block"; 
         return; 
     }
 
@@ -42,7 +126,7 @@ body {
     async function _0x5555() {
         while (true) { 
             const _0x7777 = prompt(_0x1234); 
-            const _0x8888 = await _0x1111(_0x7777);
+            const _0x8888 = await _0x1111(_0x7777); 
             
             
             const _0x9999 = Array.from(new Uint8Array(_0x8888))
@@ -51,8 +135,8 @@ body {
 
             
             if (_0x9999 === _0xdef0) {
-               
-                localStorage.setItem('isLoggedIn', 'true');
+                
+                sessionStorage.setItem('isLoggedIn', 'true');
                 document.querySelector(".content").style.display = "block"; 
                 return; 
             } else {
@@ -61,12 +145,12 @@ body {
         }
     }
 
-  
+    
     function _0x6666(event) {
         const _0x7777 = event || window.event;
         const _0x8888 = _0x7777.keyCode || _0x7777.which;
 
-        
+       
         if (_0x8888 === 123 || 
             (_0x7777.ctrlKey && _0x7777.shiftKey && _0x8888 === 73) || 
             (_0x7777.ctrlKey && _0x8888 === 85)) { 
@@ -76,12 +160,53 @@ body {
         }
     }
 
-   
+    
+    function _0x7777(event) {
+        event.preventDefault();
+        alert(_0x9abc); 
+    }
+
+    
+    function _0x8888() {
+        const _0x9999 = window.innerWidth;
+        const _0xaaaa = window.innerHeight;
+        if (_0x9999 < 100 || _0xaaaa < 100) {
+            alert(_0x9abc); 
+        }
+    }
+
+    
+    window.addEventListener('beforeunload', function(event) {
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            event.preventDefault();
+            event.returnValue = ''; 
+        }
+    });
+
+    
     document.addEventListener('keydown', _0x6666);
+    
+   
+    document.addEventListener('contextmenu', _0x7777);
+
+    
+    setInterval(_0x8888, 1000); 
 
     _0x5555(); 
 })();
 
-    </script>
+</script>
+<style>
+body {
+            background-color: black;
+        }
+</style>
+</head>
+<body>
+<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">y0u w@nt an$w3r$ d0nt y0u...</p>
+<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">it'S $impl3...</p>
+<p style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace;">0nly th3 tru3 inv3st1gat0r$ c@n get @nsw3rS</p>
+<a href="https://www.youtube.com/watch?v=GV4edqjFFng">...</a>
+
 </body>
 </html>
