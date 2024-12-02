@@ -5,78 +5,67 @@
 <meta name="description" content="CuPh3@D YT ARG website">
 <script>
 (function() {
-    const _0x1234 = "Enter the password to access this page:"; 
-    const _0x5678 = "Incorrect password. Please try again."; 
-    const _0x9abc = "This action is blocked."; 
+    const correctPasswordHash = "cab7bc19cede24df08eed18677bf6bf01fe0e7db32236e2da2b4a4385b498cfd";
+    const promptMessage = "Enter the password to access this page:";
+    const incorrectPasswordMessage = "Incorrect password. Please try again.";
+    const blockedMessage = "This action is blocked."; 
 
-    
-    const _0xdef0 = "cab7bc19cede24df08eed18677bf6bf01fe0e7db32236e2da2b4a4385b498cfd"; 
-
-    
     if (sessionStorage.getItem('isLoggedIn') === 'true') {
         document.querySelector(".content").style.display = "block"; 
-        return; 
+        return;
     }
 
-    async function _0x1111(_0x2222) {
-        const _0x3333 = new TextEncoder(); 
-        const _0x4444 = await crypto.subtle.digest("SHA-256", _0x3333.encode(_0x2222)); 
-        return _0x4444; 
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const hashBuffer = await crypto.subtle.digest("SHA-256", encoder.encode(password)); 
+        return hashBuffer;
     }
 
-    async function _0x5555() {
-        while (true) { 
-            const _0x7777 = prompt(_0x1234); 
-            const _0x8888 = await _0x1111(_0x7777); 
-            
-            
-            const _0x9999 = Array.from(new Uint8Array(_0x8888))
+    async function promptForPassword() {
+        let passwordCorrect = false;
+        while (!passwordCorrect) {
+            const userPassword = prompt(promptMessage); 
+            const hashedInput = await hashPassword(userPassword); 
+
+            const hashedInputHex = Array.from(new Uint8Array(hashedInput))
                 .map(b => b.toString(16).padStart(2, "0"))
                 .join("");
 
-            
-            if (_0x9999 === _0xdef0) {
-                
+            if (hashedInputHex === correctPasswordHash) {
                 sessionStorage.setItem('isLoggedIn', 'true');
                 document.querySelector(".content").style.display = "block"; 
-                return; 
+                passwordCorrect = true; 
             } else {
-                alert(_0x5678); 
+                alert(incorrectPasswordMessage);
             }
         }
     }
 
-    
-    function _0x6666(event) {
-        const _0x7777 = event || window.event;
-        const _0x8888 = _0x7777.keyCode || _0x7777.which;
+    function blockDevToolsShortcuts(event) {
+        const key = event.keyCode || event.which;
 
-       
-        if (_0x8888 === 123 || 
-            (_0x7777.ctrlKey && _0x7777.shiftKey && _0x8888 === 73) || 
-            (_0x7777.ctrlKey && _0x8888 === 85)) { 
-            _0x7777.preventDefault();
-            _0x7777.stopPropagation();
-            alert(_0x9abc); 
+        if (key === 123 || 
+            (event.ctrlKey && event.shiftKey && key === 73) || 
+            (event.ctrlKey && key === 85)) { 
+            event.preventDefault();
+            event.stopPropagation();
+            alert(blockedMessage); 
         }
     }
 
-    
-    function _0x7777(event) {
+    function blockRightClick(event) {
         event.preventDefault();
-        alert(_0x9abc); 
+        alert(blockedMessage);
     }
 
-    
-    function _0x8888() {
-        const _0x9999 = window.innerWidth;
-        const _0xaaaa = window.innerHeight;
-        if (_0x9999 < 100 || _0xaaaa < 100) {
-            alert(_0x9abc); 
+    function detectDevTools() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        if (width < 100 || height < 100) {
+            alert(blockedMessage);
         }
     }
 
-    
     window.addEventListener('beforeunload', function(event) {
         if (sessionStorage.getItem('isLoggedIn') !== 'true') {
             event.preventDefault();
@@ -84,16 +73,11 @@
         }
     });
 
-    
-    document.addEventListener('keydown', _0x6666);
-    
-   
-    document.addEventListener('contextmenu', _0x7777);
+    document.addEventListener('keydown', blockDevToolsShortcuts);
+    document.addEventListener('contextmenu', blockRightClick);
+    setInterval(detectDevTools, 1000);
 
-    
-    setInterval(_0x8888, 1000); 
-
-    _0x5555(); 
+    promptForPassword();
 })();
 
 </script>
